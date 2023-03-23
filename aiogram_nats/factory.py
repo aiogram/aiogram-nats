@@ -4,9 +4,9 @@ from aiogram_nats import NATSFSMStorage
 
 
 async def create_nats_fsm_storage(
-        nc: Client,
-        states_kv_name: str = "fsm_states_aiogram",
-        data_kv_name: str = "fsm_data_aiogram",
+    nc: Client,
+    states_kv_name: str = "fsm_states_aiogram",
+    data_kv_name: str = "fsm_data_aiogram",
 ) -> NATSFSMStorage:
     """
     Create NATSFSMStorage instance

@@ -15,12 +15,16 @@ router = Router()
 
 
 @router.message(F.text)
-async def process_text_message(message: types.Message, state: FSMContext) -> TelegramMethod:
+async def process_text_message(
+    message: types.Message, state: FSMContext
+) -> TelegramMethod:
     data = await state.get_data()
     count = data.get("count", 0) + 1
     await state.update_data(count=count)
 
-    return message.reply(f"You have sent {count} messages. \nYour message: {message.text}")
+    return message.reply(
+        f"You have sent {count} messages. \nYour message: {message.text}"
+    )
 
 
 async def main():

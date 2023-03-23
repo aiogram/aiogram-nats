@@ -22,9 +22,13 @@ class NATSFSMStorage(BaseStorage):
     def _key_formatter(key: StorageKey) -> str:
         return f"{key.bot_id}:{key.user_id}:{key.chat_id}:{key.destiny}"
 
-    async def set_state(self, bot: Bot, key: StorageKey, state: Optional[StateType] = None) -> None:
+    async def set_state(
+        self, bot: Bot, key: StorageKey, state: Optional[StateType] = None
+    ) -> None:
         state = state.state if isinstance(state, State) else state
-        await self.kv_states.put(self._key_formatter(key), ormsgpack.packb(state or None))
+        await self.kv_states.put(
+            self._key_formatter(key), ormsgpack.packb(state or None)
+        )
 
     async def get_state(self, bot: Bot, key: StorageKey) -> Optional[str]:
         try:
