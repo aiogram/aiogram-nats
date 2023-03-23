@@ -9,7 +9,13 @@ packages = [{include = "aiogram_nats"}]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+aiogram = "3.0.0b7"
+nats-py = "^2.2.0"
+ormsgpack = "^1.2.5"
 
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.1.1"
 
 [build-system]
 requires = ["poetry-core"]
